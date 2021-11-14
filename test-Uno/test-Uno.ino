@@ -1,5 +1,5 @@
-#define DIR_INPUT 2/*INT 0*/
-#define STEP_INPUT 5
+#define STEP_INPUT 2/*INT 0*/
+#define DIR_INPUT 5
 #define DIR_PIN 7
 #define STEP_PIN 6
 #define HALL_PULSE_PIN 3/*INT 1*/
