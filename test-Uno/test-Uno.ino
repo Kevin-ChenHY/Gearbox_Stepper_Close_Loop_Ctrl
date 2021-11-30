@@ -46,17 +46,23 @@ void on_HALL_PULSE_changed()
   //Serial.println(" on_HALL_PULSE_RISING()");
   if(digitalRead(HALL_DIR_PIN)) hall_sensor++; else hall_sensor--;
 }*/
+/*
+#define Total_Pulse 80
+#define Pulse_Delay 30
+*/
+#define Total_Pulse 1600
+#define Pulse_Delay 1
 
 void loop() {
   digitalWrite(DIR_PIN, LOW); 
-  for(int i=0;i<200;i++)
+  for(int i=0;i<Total_Pulse;i++)
   {
     digitalWrite(STEP_PIN, HIGH);
     //digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(10);                       // wait for a second
+    delay(Pulse_Delay);                       // wait for a second
     digitalWrite(STEP_PIN, LOW);
     //digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(490);                       // wait for a second
+    delay(Pulse_Delay);                       // wait for a second
     
     step_count++;
     
@@ -69,14 +75,14 @@ void loop() {
   }
   
   digitalWrite(DIR_PIN, HIGH); 
-  for(int i=0;i<200;i++)
+  for(int i=0;i<Total_Pulse;i++)
   {
     digitalWrite(STEP_PIN, HIGH);
     //digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(10);                       // wait for a second
+    delay(Pulse_Delay);                       // wait for a second
     digitalWrite(STEP_PIN, LOW);
     //digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(490);                       // wait for a second
+    delay(Pulse_Delay);                       // wait for a second
     
     step_count--;
     
