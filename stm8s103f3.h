@@ -17,6 +17,29 @@
 	PD6  // UART 
 };*/
 
+//fix : sduino\hardware\stm8\0.5.0\variants\standard\pins_arduino.h
+#ifndef digitalPinToInterrupt
+const uint8_t digitalPinToInterruptMap[] = {
+  0, // PA1
+  0, // PA2
+  0, // PA3
+  1, // PB5
+  1, // PB4
+  2, // PC3
+  2, // PC4
+  2, // PC5
+  2, // PC6
+  2, // PC7
+  3, // PD1
+  3, // PD2
+  3, // PD3
+  3, // PD4
+  3, // PD5
+  3  // PD6
+};
+#define digitalPinToInterrupt(p)  (((uint16_t)p) < NUM_DIGITAL_PINS ? digitalPinToInterruptMap[p] : NOT_AN_INTERRUPT)
+#endif//digitalPinToInterrupt
+//end fix : sduino\hardware\stm8\0.5.0\variants\standard\pins_arduino.h
 
 #define STEP_INPUT PD3/*EXTI3*/
 #define DIR_INPUT PD2
